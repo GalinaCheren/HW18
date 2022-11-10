@@ -59,11 +59,12 @@ let result = users.reduce(
   (accum, user) => {
     let userBalance = parseFloat(user.balance.slice(1).replace(",", ""));
     if (userBalance > 2000) {
-      accum.names.push(user.name);
-      accum.sum += userBalance;
+      accum.phone.push(user.phone);
     }
+    accum.sum += userBalance;
     return accum;
   },
-  { names: [], sum: 0 }
+  { phone: [], sum: 0 }
 );
-console.log(result.names, +result.sum.toFixed(2));
+console.log(result.phone);
+console.log(`Сума всіх балансів користувачів: ${+result.sum.toFixed(2)}`);
